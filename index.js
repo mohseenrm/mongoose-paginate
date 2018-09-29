@@ -64,6 +64,8 @@ function paginate(query, options, callback) {
   }
   promises = Object.keys(promises).map((x) => promises[x]);
   return Promise.all(promises).then((data) => {
+    console.log("[DEBUG][MONGOOSE] data: ", data)
+
     let result = {
       docs: data.docs,
       total: data.countDocuments,
